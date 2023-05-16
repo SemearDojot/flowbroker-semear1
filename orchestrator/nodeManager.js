@@ -12,6 +12,7 @@ const select = require('./nodes/switch/index').Handler;
 const template = require('./nodes/template/index').Handler;
 const device_in = require('./nodes/device-in/device-in').Handler;
 const event_device_in = require('./nodes/event-device-in/event-device-in').Handler;
+const event_device_in_semear = require('./nodes/event-device-semear/event-device-in-semear').Handler;
 const event_template_in = require('./nodes/event-template-in/event-template-in').Handler;
 const template_in = require('./nodes/template-in/template-in').Handler;
 const actuate = require('./nodes/actuate/actuate').Handler;
@@ -202,6 +203,7 @@ class NodeManager {
             "switch": new select(),
             "template": new template(),
             "event device in": new event_device_in(),
+            "event device in semear": new event_device_in_semear(),
             "device in": new device_in(),
             "device out": new device_out(
               new Publisher(kafkaMessenger, config.kafkaMessenger.dojot.subjects.deviceData, tenant)),
